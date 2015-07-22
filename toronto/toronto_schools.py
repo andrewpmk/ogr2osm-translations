@@ -16,13 +16,20 @@ def filterTags(attrs):
 	#tags.update({'operator':'Toronto District School Board'})
 	#Add amenity=school
 	tags.update({'amenity':'school'})
+	#Add addr:province and addr:country
+	tags.update({'addr:province':'ON'})
+	tags.update({'addr:country':'CA'})
 	#automagically convert names
 	if attrs['SCHNAME']:
 		tags.update({'name':attrs['SCHNAME'].strip(' ')})
-  if attrs['ADDRESS']:
-		tags.update({'addr:full':attrs['ADDRESS'].strip(' ')})
-  if attrs['MUN']:
+	if attrs['ADDRESS']:
+		address=split(attrs['ADDRESS'])
+		housenumber=address.pop(0)
+		street=" ".join(address)
+  		tags.update({'addr:housenumber':housenumber.strip(' ')})
+  		tags.update({'addr:street':street.strip(' ')})
+	if attrs['MUN']:
 		tags.update({'addr:city':attrs['MUN'].strip(' ')})
-  if attrs['POSTALCODE']:
+	if attrs['POSTALCODE']:
 		tags.update({'addr:postcode':attrs['POSTALCODE'].strip(' ')})
 	return tags
