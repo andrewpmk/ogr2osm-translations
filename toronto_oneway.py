@@ -11,20 +11,24 @@ WORK IN PROGRESS - DO NOT USE
 def translateName(rawname):
 	suffixlookup = {}
 	suffixlookup.update({'Ave':'Avenue'})
-	suffixlookup.update({'Rd':'Road'})
-	suffixlookup.update({'St':'Street'})
-	suffixlookup.update({'Pl':'Place'})
-	suffixlookup.update({'Cr':'Crescent'})
+	suffixlookup.update({'Bdge':'Bridge'})
 	suffixlookup.update({'Blvd':'Boulevard'})
-	suffixlookup.update({'Dr':'Drive'})
-	suffixlookup.update({'Lane':'Lane'})
+	suffixlookup.update({'Crcl':'Circle'})
 	suffixlookup.update({'Crt':'Court'})
-	suffixlookup.update({'Gr':'Grove'})
-	suffixlookup.update({'Cl':'Close'})
-	suffixlookup.update({'Rwy':'Railway'})
-	suffixlookup.update({'Div':'Diversion'})
-	suffixlookup.update({'Hwy':'Highway'})
-	suffixlookup.update({'Hwy':'Highway'})
+	suffixlookup.update({'Crct':'Circuit'})
+	suffixlookup.update({'Cres':'Crescent'})
+	suffixlookup.update({'Cs':'Close'})
+	suffixlookup.update({'Dr':'Drive'})
+	suffixlookup.update({'Xwy':'Expressway'})
+	suffixlookup.update({'Gdn':'Garden'})
+	suffixlookup.update({'Gdns':'Gardens'})
+	suffixlookup.update({'Gt':'Gate'})
+	suffixlookup.update({'Grn':'Green'})
+	suffixlookup.update({'Grv':'Grove'})
+	suffixlookup.update({'Hts':'Heights'})
+	suffixlookup.update({'Hwy':'Hwy'})
+	suffixlookup.update({'Hill':'Hill'})
+	suffixlookup.update({'Lane':'Lane'})
 
 	suffixlookup.update({'E':'East'})
 	suffixlookup.update({'S':'South'})
@@ -97,6 +101,8 @@ def filterTags(attrs):
 		tags.update({'highway':'road'})
 	if 'FCODE' in attrs:
 		tags.update({'opendata:type': attrs['FCODE'].strip(' ')})
+	if 'ONE_WAY_DI' in attrs:
+		tags.update({'oneway': attrs['ONE_WAY_DI'.strip(' ')})
 	
 	
 
