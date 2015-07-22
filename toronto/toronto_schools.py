@@ -23,7 +23,7 @@ def filterTags(attrs):
 	if attrs['SCHNAME']:
 		tags.update({'name':attrs['SCHNAME'].strip(' ')})
 	if attrs['ADDRESS']:
-		address=split(attrs['ADDRESS'])
+		address=attrs['ADDRESS'].split()
 		housenumber=address.pop(0)
 		street=" ".join(address)
   		tags.update({'addr:housenumber':housenumber.strip(' ')})
