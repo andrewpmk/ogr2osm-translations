@@ -2,7 +2,9 @@
 Translation rules for City of Toronto Open Data, Oneway Streets.
 http://opendata.toronto.ca/gcc/oneways_wgs84.zip
 
-Copyright 2015 Andrew MacKinnon, 2011 Paul Norman. 
+Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
+
+WORK IN PROGRESS - DO NOT USE
 
 """
 
@@ -48,47 +50,53 @@ def filterTags(attrs):
 	if attrs['LF_NAME']:
 		tags.update({'name':translateName(attrs['LF_NAME'].strip(' '))})
 
-	if 'RC_TYPE2' in attrs:
-		if attrs['RC_TYPE2'] == "Road" or attrs['RC_TYPE2'] == "Frontage Road":  #TYPE=0 or 1
-			#some form of road	
-			if attrs['STATUS'] and attrs['STATUS'] == "Unconstructed":
-				tags.update({'highway':'proposed'})
-			else:
-				#a road that's been completed
-				if attrs['STATUS'] and attrs['STATUS'] == "Closed to Traffic":
-					tags.update({'access':'no'})
-				if attrs['RD_CLASS'] and attrs['RD_CLASS'] == "Provincial Highway":
-					tags.update({'highway':'primary'})
-				elif attrs['RD_CLASS'] and attrs['RD_CLASS'] == "Arterial":
-					tags.update({'highway':'secondary'})
-				elif attrs['RD_CLASS'] and attrs['RD_CLASS'] == "Major Collector":
-					tags.update({'highway':'tertiary'})
-				elif attrs['RD_CLASS'] and attrs['RD_CLASS'] == "Local":
-					tags.update({'highway':'residential'})
-				elif attrs['RD_CLASS'] and attrs['RD_CLASS'] == "Translink":
-					tags.update({'highway':'road'})
-				else:
-					tags.update({'highway':'road'})
-		elif attrs['RC_TYPE2'] == "Highway Interchange": #type=1
-			tags.update({'highway':'primary_link'})
-		elif attrs['RC_TYPE2'] == "Street Lane" or attrs['RC_TYPE2'] == "Access Lane": #TYPE=3 or 4
-			tags.update({'highway':'service'})
-			tags.update({'service':'alley'})
-		elif attrs['RC_TYPE2'] == "Railway": #type 5
-			tags.update({'railway':'rail'})
-		
-	# Truck route information
-	if 'ROUTE' in attrs:
-		if attrs['ROUTE'] == "Dangerous Goods Routes":
-			tags.update({'hazmat':'designated'})
-			tags.update({'hgv':'designated'})
-		if attrs['ROUTE'] == "Truck Routes":
-			tags.update({'hgv':'designated'})				
-		if attrs['ROUTE'] == "Truck Routes Restrictions":
-			tags.update({'hgv':'no'})
-
-	if 'GEODB_OID' in attrs:
-		tags.update({'surrey:geodb_oid': attrs['GEODB_OID'].strip(' ')})
+	if attrs['FCODE'] and attrs['FCODE'] == "201100":
+		tags.update({'highway':'motorway'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201101":
+		tags.update({'highway':'motorway_link'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201200":
+		tags.update({'highway':'secondary'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201201":
+		tags.update({'highway':'secondary_link'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201300":
+		tags.update({'highway':'tertiary'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201301":
+		tags.update({'highway':'tertiary_link'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201400":
+		tags.update({'highway':'tertiary'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201401":
+		tags.update({'highway':'tertiary_link'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201500":
+		tags.update({'highway':'residential'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201600":
+		tags.update({'highway':'unclassified'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "201601":
+		tags.update({'highway':'unclassified'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "202001":
+		tags.update({'railway':'rail'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "202002":
+		tags.update({'railway':'rail'})
+		tags.update({'service':'spur'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "202003":
+		tags.update({'railway':'construction'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "203001":
+		tags.update({'waterway':'river'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "203002":
+		tags.update({'waterway':'stream'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "204001":
+		tags.update({'highway':'path'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "204002":
+		tags.update({'highway':'footway'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "205001":
+		tags.update({'power':'line'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "206001":
+		tags.update({'natural':'coastline'})
+	elif attrs['FCODE'] and attrs['FCODE'] == "206002":
+		tags.update({'natural':'coastline'})
+	else:
+		tags.update({'highway':'road'})
+	if 'FCODE' in attrs:
+		tags.update({'opendata:type': attrs['FCODE'].strip(' ')})
 	
 	
 
