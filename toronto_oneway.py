@@ -61,8 +61,6 @@ def translateName(rawname):
 	
 	return newName.strip()
 
-
-
 def filterTags(attrs):
 	if not attrs: return
 
