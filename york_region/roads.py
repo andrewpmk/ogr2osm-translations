@@ -33,15 +33,16 @@ def filterTags(attrs):
 		tags.update({'highway':'service'})
 		tags.update({'service':'alley'})
 	elif attrs['ROAD_CLASS'] and attrs['ROAD_CLASS'] == "Private Road":
-	  tags.update({'highway':'service'})
-	  tags.update({'access':'private'})
+		tags.update({'highway':'service'})
+		tags.update({'access':'private'})
 	else:
 		tags.update({'highway':'road'})
 	if 'ROAD_NUMBE' in attrs:
-	  tags.update({'ref': attrs['ROAD_NUMBE'].strip(' ')})
+		tags.update({'ref': attrs['ROAD_NUMBE'].strip(' ')})
 	if 'ROAD_CLASS' in attrs:
 		tags.update({'opendata:type': attrs['ROAD_CLASS'].strip(' ')})
-	if 'ONE_WAY_DI' in attrs:
-		tags.update({'oneway': attrs['ONE_WAY_DI'].strip(' ')})
+	if 'FLOW' in attrs:
+		if attrs['FLOW'] == 'OneWay":
+			tags.update({'oneway': 'yes'})
 
 	return tags
