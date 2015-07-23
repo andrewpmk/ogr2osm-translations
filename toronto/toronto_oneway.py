@@ -4,6 +4,14 @@ http://opendata.toronto.ca/gcc/oneways_wgs84.zip
 
 Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
 
+TODO:
+Add some way of processing lane names like Ln N King E Spadina
+Add some way of flipping around oneway=-1
+Add some missing road types that become highway=road
+Remove Planning Boundary
+Fix Saint at beginning of name - should be Saint not Street
+Fix endings like 'S - should be 's
+
 """
 
 def translateName(rawname):
