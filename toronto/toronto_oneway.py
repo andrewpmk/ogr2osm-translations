@@ -4,8 +4,6 @@ http://opendata.toronto.ca/gcc/oneways_wgs84.zip
 
 Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
 
-WORK IN PROGRESS - DO NOT USE
-
 """
 
 def translateName(rawname):
@@ -97,8 +95,7 @@ def filterTags(attrs):
 	elif attrs['FCODE'] and attrs['FCODE'] == "202001":
 		tags.update({'railway':'rail'})
 	elif attrs['FCODE'] and attrs['FCODE'] == "202002":
-		tags.update({'railway':'rail'})
-		tags.update({'service':'spur'})
+		tags.update({'railway':'subway'})
 	elif attrs['FCODE'] and attrs['FCODE'] == "202003":
 		tags.update({'railway':'construction'})
 	elif attrs['FCODE'] and attrs['FCODE'] == "203001":
