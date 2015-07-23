@@ -4,8 +4,6 @@ http://opendata.toronto.ca/gcc/city_green_space_wgs84.zip
 
 Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
 
-WORK IN PROGRESS - DO NOT USE
-
 """
 
 def translateName(rawname):
