@@ -60,7 +60,7 @@ def filterTags(attrs):
 		if attrs['ROAD_NUMBE']!='':
 			ref=attrs['ROAD_NUMBE'].strip(' ')
 			# Remove leading 0 from ref (e.g. 07 -> 7)
-			if ref[0]='0':
+			if ref[0]=='0':
 				ref=ref[1:]
 			tags.update({'ref': ref})
 	if 'ROAD_CLASS' in attrs:
