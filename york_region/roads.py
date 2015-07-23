@@ -5,12 +5,6 @@ Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
 
 Projection is EPSG:26917
 
-TODO:
-Remove Unopened Road Allowance
-Remove Proposed Road (maybe)
-
-WORK IN PROGRESS - DO NOT USE
-
 """
 
 def filterFeature(ogrfeature, fieldNames, reproject):
