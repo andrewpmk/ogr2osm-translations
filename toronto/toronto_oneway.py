@@ -120,6 +120,6 @@ def filterTags(attrs):
 	if 'FCODE' in attrs:
 		tags.update({'opendata:type': attrs['FCODE'].strip(' ')})
 	if 'ONE_WAY_DI' in attrs:
-		tags.update({'oneway': attrs['ONE_WAY_DI'.strip(' ')})
+		tags.update({'oneway': attrs['ONE_WAY_DI'].strip(' ')})
 
 	return tags
