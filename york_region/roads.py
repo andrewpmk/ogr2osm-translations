@@ -4,7 +4,6 @@ Translation rules for York Region Open Data, Roads.
 Copyright 2015 Andrew MacKinnon, 2011 Paul Norman.
 
 Projection is EPSG:26917
-
 """
 
 def filterFeature(ogrfeature, fieldNames, reproject):
