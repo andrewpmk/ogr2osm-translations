@@ -10,6 +10,8 @@ Add some way of flipping around oneway=-1
 Add some missing road types that become highway=road, like laneways
 A bunch of FCODEs are missing
 Remove Planning Boundary
+Remove coastline
+Add ferries
 Fix Saint at beginning of name - should be Saint not Street
 Fix endings like 'S - should be 's
 
