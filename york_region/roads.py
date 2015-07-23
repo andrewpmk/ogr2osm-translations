@@ -42,7 +42,7 @@ def filterTags(attrs):
 	if 'ROAD_CLASS' in attrs:
 		tags.update({'opendata:type': attrs['ROAD_CLASS'].strip(' ')})
 	if 'FLOW' in attrs:
-		if attrs['FLOW'] == 'OneWay":
+		if attrs['FLOW'] == "OneWay":
 			tags.update({'oneway': 'yes'})
 
 	return tags
