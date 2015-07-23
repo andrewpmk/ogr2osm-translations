@@ -13,6 +13,15 @@ WORK IN PROGRESS - DO NOT USE
 
 """
 
+def filterFeature(ogrfeature, fieldNames, reproject):
+    if ogrfeature is None:
+        return
+    road_class = ogrfeature.GetFieldAsString("ROAD_CLASS")
+    if road_class=="Unopened Road Allowance":
+        return
+    else:
+    	return ogrfeature
+
 def filterTags(attrs):
 	if not attrs: return
 
