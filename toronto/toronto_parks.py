@@ -22,7 +22,7 @@ def filterTags(attrs):
 	#Add leisure=park
 	tags.update({'leisure':'park'})
 	#automagically convert names
-	if attrs['LF_NAME']:
-		tags.update({'name':translateName(attrs['LF_NAME'].strip(' '))})
+	if attrs['NAME']:
+		tags.update({'name':translateName(attrs['NAME'].strip(' '))})
 
 	return tags
