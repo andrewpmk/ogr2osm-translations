@@ -34,6 +34,9 @@ def filterTags(attrs):
 	elif attrs['Class'] and attrs['Class'] == "Marked On Road Bicycle Route":
 		tags.update({'highway':'road'})
 		tags.update({'lcn'='yes'})
+	elif attrs['Class'] and attrs['Class'] == "On Road Connection":
+		tags.update({'highway':'road'})
+		tags.update({'bicycle'='yes'})
 	else:
 		tags.update({'highway':'road'})
 	if 'ROAD_CLASS' in attrs:
